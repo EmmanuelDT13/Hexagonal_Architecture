@@ -13,8 +13,8 @@ public class DeleteTaskUsecaseImpl implements DeleteTaskUsecase{
 	private TaskRepositoryPort taskRepositoryPort;
 	
 	@Override
-	public void deleteTask(Integer idTask) {
-		taskRepositoryPort.deleteById(idTask);
+	public Boolean deleteTask(Integer idTask) {
+		return taskRepositoryPort.deleteById(idTask);
 	}
 
 }

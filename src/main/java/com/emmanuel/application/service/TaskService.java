@@ -3,6 +3,9 @@ package com.emmanuel.application.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.emmanuel.domain.models.Task;
 import com.emmanuel.domain.models.TaskDetails;
 import com.emmanuel.domain.ports.in.CreateTaskUsecase;
@@ -11,28 +14,24 @@ import com.emmanuel.domain.ports.in.GetDetailsUsecase;
 import com.emmanuel.domain.ports.in.GetTaskUsecase;
 import com.emmanuel.domain.ports.in.UpdateTaskUsecase;
 
+@Service
 public class TaskService implements CreateTaskUsecase, DeleteTaskUsecase, GetDetailsUsecase, GetTaskUsecase, UpdateTaskUsecase{
 
-	private final CreateTaskUsecase createTaskUsecase;
+	@Autowired
+	private CreateTaskUsecase createTaskUsecase;
 	
-	private final DeleteTaskUsecase deleteTaskUsecase;
+	@Autowired
+	private DeleteTaskUsecase deleteTaskUsecase;
 	
-	private final GetDetailsUsecase getDetailsUsecase;
+	@Autowired
+	private GetDetailsUsecase getDetailsUsecase;
 	
-	private final GetTaskUsecase getTaskUsecase;
+	@Autowired
+	private GetTaskUsecase getTaskUsecase;
 	
-	private final UpdateTaskUsecase updateTaskUsecase;
+	@Autowired
+	private UpdateTaskUsecase updateTaskUsecase;
 	
-	public TaskService(CreateTaskUsecase createTaskUsecase, DeleteTaskUsecase deleteTaskUsecase,
-			GetDetailsUsecase getDetailsUsecase, GetTaskUsecase getTaskUsecase, UpdateTaskUsecase updateTaskUsecase) {
-		super();
-		this.createTaskUsecase = createTaskUsecase;
-		this.deleteTaskUsecase = deleteTaskUsecase;
-		this.getDetailsUsecase = getDetailsUsecase;
-		this.getTaskUsecase = getTaskUsecase;
-		this.updateTaskUsecase = updateTaskUsecase;
-	}
-
 	@Override
 	public Optional<Task> UpdateTask(Integer idTask, Task task) {
 		return this.updateTaskUsecase.UpdateTask(idTask, task);
@@ -49,13 +48,13 @@ public class TaskService implements CreateTaskUsecase, DeleteTaskUsecase, GetDet
 	}
 
 	@Override
-	public Optional<TaskDetails> getTaskDetails(Integer idTask) {
+	public TaskDetails getTaskDetails(Integer idTask) {
 		return this.getDetailsUsecase.getTaskDetails(idTask);
 	}
 
 	@Override
-	public void deleteTask(Integer idTask) {
-		this.deleteTaskUsecase.deleteTask(idTask);
+	public Boolean deleteTask(Integer idTask) {
+		return this.deleteTaskUsecase.deleteTask(idTask);
 	}
 
 	@Override

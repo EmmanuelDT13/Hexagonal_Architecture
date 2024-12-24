@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Task {
 
-	private Long idTaks;
+	private Integer idTaks;
 	
 	private String taskTitle;
 	
@@ -14,7 +14,7 @@ public class Task {
 	
 	private boolean isCompleted;
 
-	public Task(Long idTaks, String taskTitle, String taskDescription, LocalDateTime createdDate,
+	public Task(Integer idTaks, String taskTitle, String taskDescription, LocalDateTime createdDate,
 			boolean isCompleted) {
 		super();
 		this.idTaks = idTaks;
@@ -24,11 +24,11 @@ public class Task {
 		this.isCompleted = isCompleted;
 	}
 
-	public Long getIdTaks() {
+	public Integer getIdTaks() {
 		return idTaks;
 	}
 
-	public void setIdTaks(Long idTaks) {
+	public void setIdTaks(Integer idTaks) {
 		this.idTaks = idTaks;
 	}
 

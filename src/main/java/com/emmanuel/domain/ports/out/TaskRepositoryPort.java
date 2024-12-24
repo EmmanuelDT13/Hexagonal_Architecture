@@ -1,11 +1,20 @@
 package com.emmanuel.domain.ports.out;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.List;
+import java.util.Optional;
 
 import com.emmanuel.domain.models.Task;
 
-@Repository
-public interface TaskRepositoryPort extends JpaRepository<Task, Integer>{
+public interface TaskRepositoryPort{
 
+	public Task save(Task task);
+	
+	public Optional<Task> findById(Integer idTask);
+	
+	public List<Task> findAll();
+	
+	public Optional<Task> update(Task task);
+	
+	public boolean deleteById(Integer idTask);
+	
 }

@@ -1,12 +1,8 @@
 package com.emmanuel.application.usecases;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.emmanuel.domain.ports.out.ExternalServicePort;
-
 import com.emmanuel.domain.models.TaskDetails;
 import com.emmanuel.domain.ports.in.GetDetailsUsecase;
 
@@ -17,7 +13,7 @@ public class GetDetailsUsecaseImpl implements GetDetailsUsecase{
 	private ExternalServicePort externalServicePort;
 	
 	@Override
-	public Optional<TaskDetails> getTaskDetails(Integer idTask) {
+	public TaskDetails getTaskDetails(Integer idTask) {
 		// TODO Auto-generated method stub
 		return externalServicePort.getTaskDetails(idTask);
 	}
